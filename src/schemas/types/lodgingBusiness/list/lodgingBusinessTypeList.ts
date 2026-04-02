@@ -7,7 +7,8 @@ const lodgingBusinessTypeList = [
   'Hostel',
   'Hotel',
   'Motel',
-  'Resort'
+  'Resort',
+  'Vacation Rental'
 ];
 
 export default lodgingBusinessTypeList;

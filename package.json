@@ -1,5 +1,5 @@
 {
-  "name": "@evelan/sanity-plugin-schema-markup",
+  "name": "sanity-plugin-schema-markup",
   "version": "3.0.0",
   "description": "the plugin is designed to simplify the process of generating schema markup for various types of content. This plugin is particularly useful for enhancing the structured data of your content, making it more accessible and understandable for search engines.",
   "keywords": [
@@ -119,6 +119,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "rimraf": "^5.0.5",
+    "@sanity/semantic-release-preset": "^4.1.6",
     "sanity": "^3.18.0",
     "styled-components": "^5.3.11",
     "ts-jest": "^29.1.1",

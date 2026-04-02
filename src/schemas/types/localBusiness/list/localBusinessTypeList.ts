@@ -83,8 +83,7 @@ const localBusinessList = [
   },
   'Internet Cafe',
   'Library',
-  // Lodging types moved to dedicated lodgingBusiness schema type
-  // with hospitality-specific fields (checkinTime, petsAllowed, amenities, etc.)
+  // Lodging types are in the dedicated lodgingBusiness schema type
   {
     optgroup: 'Medical/Dental',
     list: [

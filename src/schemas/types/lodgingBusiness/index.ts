@@ -8,6 +8,7 @@ import Domain from '../../../components/GlobalSetting/Domain';
 import Logo from '../../../components/GlobalSetting/Logo';
 import Phone from '../../../components/GlobalSetting/Phone';
 import SocialLinks from '../../../components/GlobalSetting/SocialLinks';
+import TimePicker from '../../../components/TimePicker';
 
 const lodgingBusiness = (name = 'lodgingBusiness') => {
   return defineType({
@@ -100,12 +101,18 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
         title: 'Check-in Time',
         description: 'e.g. "14:00"',
         type: 'string',
+        components: {
+          input: TimePicker
+        }
       }),
       defineField({
         name: 'checkoutTime',
         title: 'Check-out Time',
         description: 'e.g. "11:00"',
         type: 'string',
+        components: {
+          input: TimePicker
+        }
       }),
       defineField({
         name: 'petsAllowed',
@@ -166,6 +173,20 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
             title: 'Rating Value',
             description: 'e.g. "4" for a 4-star property',
             type: 'string',
+          }),
+          defineField({
+            name: 'bestRating',
+            title: 'Best Rating',
+            description: 'Highest value in the rating scale (default: "5")',
+            type: 'string',
+            initialValue: '5',
+          }),
+          defineField({
+            name: 'worstRating',
+            title: 'Worst Rating',
+            description: 'Lowest value in the rating scale (default: "1")',
+            type: 'string',
+            initialValue: '1',
           }),
         ],
       }),

@@ -1,5 +1,5 @@
 const lodgingBusiness = {
-  '@type': 'LodgingBusiness',
+  '@type': 'string',
   '@id': 'string',
   name: 'string',
   alternateName: 'string',
@@ -14,16 +14,20 @@ const lodgingBusiness = {
   paymentAccepted: 'string',
   checkinTime: 'string',
   checkoutTime: 'string',
+  petsAllowed: 'string',
+  numberOfRooms: 'number',
   starRating: {
     '@type': 'Rating',
     ratingValue: 'string',
+    bestRating: 'string',
+    worstRating: 'string'
   },
   amenityFeature: [
     {
       '@type': 'LocationFeatureSpecification',
       name: 'string',
-      value: 'string',
-    },
+      value: 'string'
+    }
   ],
   address: {
     '@type': 'PostalAddress',
@@ -31,12 +35,12 @@ const lodgingBusiness = {
     addressLocality: 'string',
     addressRegion: 'string',
     postalCode: 'string',
-    addressCountry: 'string',
+    addressCountry: 'string'
   },
   geo: {
     '@type': 'GeoCoordinates',
     latitude: 0.0,
-    longitude: 0.0,
+    longitude: 0.0
   },
   hasMap: 'string',
   openingHoursSpecification: [
@@ -44,10 +48,10 @@ const lodgingBusiness = {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['string', 'string'],
       opens: 'string',
-      closes: 'string',
-    },
+      closes: 'string'
+    }
   ],
-  sameAs: ['string', 'string'],
+  sameAs: ['string', 'string']
 };
 
 export default lodgingBusiness;

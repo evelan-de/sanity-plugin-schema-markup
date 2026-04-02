@@ -132,6 +132,11 @@
   "engines": {
     "node": ">=18"
   },
+  "sanityPlugin": {
+    "verifyPackage": {
+      "nodeEngine": false
+    }
+  },
   "publishConfig": {
     "access": "public"
   }

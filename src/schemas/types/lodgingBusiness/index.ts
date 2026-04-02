@@ -22,79 +22,79 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
         title: 'Type',
         type: 'string',
         components: {
-          input: LodgingBusinessListSelect,
+          input: LodgingBusinessListSelect
         },
-        initialValue: 'LodgingBusiness',
+        initialValue: 'LodgingBusiness'
       }),
       defineField({
         name: 'name',
         title: 'Name',
         type: 'string',
         components: {
-          input: CompanyName,
-        },
+          input: CompanyName
+        }
       }),
       defineField({
         name: 'alternateName',
         title: 'Alternate Name',
-        type: 'string',
+        type: 'string'
       }),
       defineField({
         name: 'description',
         title: 'Description',
-        type: 'text',
+        type: 'text'
       }),
       defineField({
         name: 'url',
         title: 'Url',
         type: 'url',
         components: {
-          input: Domain,
-        },
+          input: Domain
+        }
       }),
       defineField({
         name: 'logo',
         title: 'Logo',
         type: 'image',
         components: {
-          input: Logo,
-        },
+          input: Logo
+        }
       }),
       defineField({
         name: 'image',
         title: 'Image',
-        type: 'image',
+        type: 'image'
       }),
       defineField({
         name: 'priceRange',
         title: 'Price Range',
         description: 'e.g. "$$" or "€€"',
-        type: 'string',
+        type: 'string'
       }),
       defineField({
         name: 'currenciesAccepted',
         title: 'Currencies Accepted',
         description: 'e.g. "EUR", "USD"',
-        type: 'string',
+        type: 'string'
       }),
       defineField({
         name: 'paymentAccepted',
         title: 'Payment Accepted',
         description: 'e.g. "Cash, Credit Card, Bank Transfer"',
-        type: 'string',
+        type: 'string'
       }),
       defineField({
         name: 'telephone',
         title: 'Telephone',
         type: 'string',
         components: {
-          input: Phone,
-        },
+          input: Phone
+        }
       }),
       defineField({
         name: 'email',
         title: 'Email',
-        type: 'string',
+        type: 'string'
       }),
       defineField({
         name: 'checkinTime',
@@ -118,12 +118,12 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
         name: 'petsAllowed',
         title: 'Pets Allowed',
         type: 'boolean',
-        initialValue: false,
+        initialValue: false
       }),
       defineField({
         name: 'numberOfRooms',
         title: 'Number of Rooms',
-        type: 'number',
+        type: 'number'
       }),
       defineField({
         name: 'amenityFeature',
@@ -139,22 +139,22 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
                 title: 'Type',
                 type: 'string',
                 hidden: true,
-                initialValue: 'LocationFeatureSpecification',
+                initialValue: 'LocationFeatureSpecification'
               }),
               defineField({
                 name: 'name',
                 title: 'Amenity Name',
-                type: 'string',
+                type: 'string'
               }),
               defineField({
                 name: 'value',
                 title: 'Available',
                 type: 'boolean',
-                initialValue: true,
-              }),
-            ],
-          },
-        ],
+                initialValue: true
+              })
+            ]
+          }
+        ]
       }),
       defineField({
         name: 'starRating',
@@ -166,29 +166,29 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
             title: 'Type',
             type: 'string',
             hidden: true,
-            initialValue: 'Rating',
+            initialValue: 'Rating'
           }),
           defineField({
             name: 'ratingValue',
             title: 'Rating Value',
             description: 'e.g. "4" for a 4-star property',
-            type: 'string',
+            type: 'string'
           }),
           defineField({
             name: 'bestRating',
             title: 'Best Rating',
             description: 'Highest value in the rating scale (default: "5")',
             type: 'string',
-            initialValue: '5',
+            initialValue: '5'
           }),
           defineField({
             name: 'worstRating',
             title: 'Worst Rating',
             description: 'Lowest value in the rating scale (default: "1")',
             type: 'string',
-            initialValue: '1',
-          }),
-        ],
+            initialValue: '1'
+          })
+        ]
       }),
       defineField({
         name: 'address',
@@ -200,34 +200,34 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
             title: 'Type',
             type: 'string',
             hidden: true,
-            initialValue: 'PostalAddress',
+            initialValue: 'PostalAddress'
           }),
           defineField({
             name: 'streetAddress',
             title: 'Street',
-            type: 'string',
+            type: 'string'
           }),
           defineField({
             name: 'addressLocality',
             title: 'City',
-            type: 'string',
+            type: 'string'
           }),
           defineField({
             name: 'addressRegion',
             title: 'State/Province/Region',
-            type: 'string',
+            type: 'string'
           }),
           defineField({
             name: 'postalCode',
             title: 'Postal Code',
-            type: 'string',
+            type: 'string'
           }),
           defineField({
             name: 'addressCountry',
             title: 'Country',
-            type: 'string',
-          }),
-        ],
+            type: 'string'
+          })
+        ]
       }),
       defineField({
         name: 'geo',
@@ -239,24 +239,24 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
             title: 'Type',
             type: 'string',
             hidden: true,
-            initialValue: 'GeoCoordinates',
+            initialValue: 'GeoCoordinates'
           }),
           defineField({
             name: 'latitude',
             title: 'Latitude',
-            type: 'string',
+            type: 'string'
           }),
           defineField({
             name: 'longitude',
             title: 'Longitude',
-            type: 'string',
-          }),
-        ],
+            type: 'string'
+          })
+        ]
       }),
       defineField({
         name: 'hasMap',
         title: 'Include a map url',
-        type: 'url',
+        type: 'url'
       }),
       openingHoursSpecification,
       defineField({
@@ -266,25 +266,25 @@ const lodgingBusiness = (name = 'lodgingBusiness') => {
         type: 'array',
         of: [{ type: 'string' }],
         components: {
-          input: SocialLinks,
-        },
+          input: SocialLinks
+        }
       }),
-      id,
+      id
     ],
     preview: {
       select: {
         lodgingName: 'name',
-        lodgingType: 'type',
+        lodgingType: 'type'
       },
       prepare(selection) {
         const { lodgingName, lodgingType } = selection;
         return {
           title: lodgingName || 'Untitled',
           subtitle: lodgingType || 'LodgingBusiness',
-          media: BedDouble,
+          media: BedDouble
         };
-      },
-    },
+      }
+    }
   });
 };
 

@@ -1,14 +1,27 @@
-# @operationnation/sanity-plugin-schema-markup
+# sanity-plugin-schema-markup
 
-> This is a **Sanity Studio v3** plugin.
+> Fork of [`sanity-plugin-schema-markup`](https://github.com/Operation-Nation/sanity-plugin-schema-markup) with **Sanity 5 support** and additional **LodgingBusiness** schema types for the hospitality industry.
+
+## Why this fork?
+
+The original plugin only supports Sanity 3 and lacks schema types for accommodations (hotels, B&Bs, vacation rentals). This fork adds:
+
+- **Sanity 3, 4, and 5 compatibility**
+- **React 18 and 19 support**
+- **LodgingBusiness schema type** with hospitality-specific fields (checkinTime, checkoutTime, petsAllowed, amenityFeature, starRating, etc.)
+- **8 accommodation subtypes**: LodgingBusiness, BedAndBreakfast, Campground, Hostel, Hotel, Motel, Resort, VacationRental
+
+All original functionality is preserved. See the [original README](https://github.com/Operation-Nation/sanity-plugin-schema-markup) for base documentation.
+
+---
 
 # What it is
 
-The `@operationnation/sanity-plugin-schema-markup` is a Sanity Studio plugin designed to simplify the process of generating Schema Markup, also known as structured data, for various types of content. This plugin is particularly useful for enhancing the structured data of your content, making it more accessible and understandable for search engines. You can read more about Schema Markup on the [official website](https://schema.org/).
+A Sanity Studio plugin designed to simplify the process of generating Schema Markup, also known as structured data, for various types of content. This plugin is particularly useful for enhancing the structured data of your content, making it more accessible and understandable for search engines. You can read more about Schema Markup on the [official website](https://schema.org/).
 
 ## Key Features
 
-- **Schema Markup Generation:** The plugin allows you to easily generate schema markup for different types such as articles, recipes, reviews, and more.
+- **Schema Markup Generation:** Easily generate schema markup for articles, recipes, reviews, lodging businesses, and more.
 
 - **Sanity Studio Integration:** Seamlessly integrate schema markup generation into your Sanity Studio workflow, making it a part of your content creation process.
 
@@ -16,12 +29,14 @@ The `@operationnation/sanity-plugin-schema-markup` is a Sanity Studio plugin des
 
 - **React Component:** Use the `<SchemaScript />` component in the FE to inject a [JSON-LD](https://json-ld.org/) script into the `<head>` of the document.
 
+- **Hospitality Support (NEW):** Dedicated LodgingBusiness schema type with check-in/check-out times, pet policy, amenities, star rating, and all [Schema.org LodgingBusiness subtypes](https://schema.org/LodgingBusiness).
+
 ## Installation
 
 To get started, install the plugin using npm:
 
 ```sh
-npm install @operationnation/sanity-plugin-schema-markup
+npm install sanity-plugin-schema-markup
 ```
 
 ## Usage in Sanity Studio
@@ -30,7 +45,7 @@ Add it as a plugin in `sanity.config.ts` (or .js):
 
 ```ts
 import { defineConfig } from 'sanity';
-import { schemaMarkup } from '@operationnation/sanity-plugin-schema-markup';
+import { schemaMarkup } from 'sanity-plugin-schema-markup';
 
 export default defineConfig({
   plugins: [schemaMarkup()]
@@ -62,7 +77,7 @@ const myDocument = {
 Create a shared `SchemaMarkup` component that can be used in any page in your React app.
 
 ```typescript
-import { SchemaScript, type Schema } from '@operationnation/sanity-plugin-schema-markup/schemaScript';
+import { SchemaScript, type Schema } from 'sanity-plugin-schema-markup/schemaScript';
 
 type Props = {
   schema: Schema[];
@@ -112,7 +127,7 @@ Create a shared `SchemaMarkup` component that can be used in any page in your Re
 
 ```typescript
 
-import { NextSchemaScript, type Schema } from '@operationnation/sanity-plugin-schema-markup/nextSchemaScript';
+import { NextSchemaScript, type Schema } from 'sanity-plugin-schema-markup/nextSchemaScript';
 
 type Props = {
   schema: Schema[];
@@ -141,7 +156,7 @@ When creating schema markup script, you need to follow the schema type patterns:
 [**Click here to see all schema patterns**](#all-schema-type-patterns)
 
 ```javascript
-import { SchemaScript, createImgUrl } from '@operationnation/sanity-plugin-schema-markup';
+import { SchemaScript, createImgUrl } from 'sanity-plugin-schema-markup';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
@@ -184,7 +199,7 @@ You can now customize the schema markup configuration using the `schemaMarkupCon
 
 ```typescript
 //schemaMarkup.config.ts
-import { type Config } from '@operationnation/sanity-plugin-schema-markup';
+import { type Config } from 'sanity-plugin-schema-markup';
 
 const movie = {
   '@type': 'Movie',
@@ -318,7 +333,7 @@ Create a config file `schemaMarkup.config.ts` and implement it in both plugin an
 
 ```typescript
 //other imports
-import { schemaMarkup } from '@operationnation/sanity-plugin-schema-markup';
+import { schemaMarkup } from 'sanity-plugin-schema-markup';
 
 import { schemaMarkupConfig } from './schemaMarkup.config';
 
@@ -333,7 +348,7 @@ const plugins = [
 import {
   NextSchemaScript,
   type Schema
-} from '@operationnation/sanity-plugin-schema-markup/nextSchemaScript';
+} from 'sanity-plugin-schema-markup/nextSchemaScript';
 import { schemaMarkupConfig } from '../../config/schemaMarkup.config';
 
 type Props = {
@@ -977,13 +992,105 @@ const website = {
 
 </details>
 
+<details>
+
+<summary>LodgingBusiness (NEW)</summary>
+
+### LodgingBusiness Schema Markup Type
+
+> Added in this fork. Covers all [Schema.org LodgingBusiness](https://schema.org/LodgingBusiness) subtypes: BedAndBreakfast, Campground, Hostel, Hotel, Motel, Resort, VacationRental.
+
+```javascript
+const lodgingBusiness = {
+  type: 'string',   // Select from: LodgingBusiness, BedAndBreakfast, Campground, Hostel, Hotel, Motel, Resort, VacationRental
+  id: 'string',
+  name: 'string',
+  alternateName: 'string',
+  description: 'string',
+  logo: 'string',
+  image: 'string',
+  url: 'string',
+  telephone: 'string',
+  email: 'string',
+  priceRange: 'string',
+  currenciesAccepted: 'string',
+  paymentAccepted: 'string',
+  checkinTime: 'string',   // e.g. "14:00" — uses TimePicker in Studio
+  checkoutTime: 'string',  // e.g. "11:00" — uses TimePicker in Studio
+  petsAllowed: 'string',
+  numberOfRooms: 'number',
+  starRating: {
+    type: 'Rating',
+    ratingValue: 'string',
+    bestRating: 'string',    // default: "5"
+    worstRating: 'string'    // default: "1"
+  },
+  amenityFeature: [
+    {
+      type: 'LocationFeatureSpecification',
+      name: 'string',        // e.g. "Free WiFi", "Parking", "Breakfast"
+      value: 'string'        // boolean in Studio (true/false)
+    }
+  ],
+  address: {
+    type: 'PostalAddress',
+    streetAddress: 'string',
+    addressLocality: 'string',
+    addressRegion: 'string',
+    postalCode: 'string',
+    addressCountry: 'string'
+  },
+  geo: {
+    type: 'GeoCoordinates',
+    latitude: 0.0,
+    longitude: 0.0
+  },
+  hasMap: 'url',
+  openingHoursSpecification: [
+    {
+      type: 'OpeningHoursSpecification',
+      dayOfWeek: ['string', 'string'],
+      opens: 'string',
+      closes: 'string'
+    }
+  ],
+  sameAs: ['string', 'string']
+};
+```
+
+</details>
+
+## Available Schema Types
+
+| Schema Type | Status | Description |
+|-------------|--------|-------------|
+| Article | Original | News articles, blog posts |
+| BreadcrumbList | Original | Navigation breadcrumbs |
+| FAQPage | Original | Frequently asked questions |
+| HowTo | Original | Step-by-step instructions |
+| ImageObject | Original | Image metadata |
+| LocalBusiness | Original | Local businesses (non-lodging) |
+| **LodgingBusiness** | **NEW** | **Hotels, B&Bs, hostels, vacation rentals** |
+| Organization | Original | Companies, nonprofits |
+| Person | Original | Individual people |
+| Product | Original | Products with offers/reviews |
+| Recipe | Original | Cooking recipes |
+| Review | Original | Reviews and ratings |
+| Service | Original | Professional services |
+| SocialMediaPosting | Original | Social media content |
+| VideoObject | Original | Video metadata |
+| WebPage | Original | Web page metadata |
+| WebSite | Original | Website with search action |
+
 ## Contributing
 
-We have taken the liberty of adding the most commonly used Schema Markup types from the spec. If there are some missing you wish to be added, feel free to create a PR. Contributions are welcome.
+Contributions are welcome. Feel free to create a PR for missing Schema Markup types.
+
+This fork is maintained by [Evelan GmbH](https://evelan.de). The original plugin was created by [Operation Nation LLC](https://operationnation.co).
 
 ## License
 
-Copyright ©2023 Operation Nation LLC. [See LICENSE](https://github.com/Operation-Nation/sanity-plugin-schema-markup/blob/main/LICENSE).
+Copyright ©2023 Operation Nation LLC, ©2026 Evelan GmbH. [See LICENSE](./LICENSE).
 
 ## Develop & test
 

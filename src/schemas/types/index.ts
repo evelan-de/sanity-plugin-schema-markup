@@ -1,6 +1,7 @@
 import article from './article';
 import organization from './organization';
 import localBusiness from './localBusiness';
+import lodgingBusiness from './lodgingBusiness';
 import breadcrumbList from './breadcrumbList';
 import socialMediaPosting from './socialMediaPosting';
 import person from './person';
@@ -25,6 +26,7 @@ const types = (config: Config) => {
     faqPage(config?.schemaTypeNames?.faqPage),
     howTo(config?.schemaTypeNames?.howTo),
     localBusiness(config?.schemaTypeNames?.localBusiness),
+    lodgingBusiness(config?.schemaTypeNames?.lodgingBusiness),
     organization(config?.schemaTypeNames?.organization),
     person(config?.schemaTypeNames?.person),
     product(config?.schemaTypeNames?.product),

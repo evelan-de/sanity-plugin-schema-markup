@@ -24,6 +24,7 @@ let configData: Config = {
     howTo: 'howToType',
     imageObject: 'imageObjectType',
     localBusiness: 'localBusiness',
+    lodgingBusiness: 'lodgingBusiness',
     organization: 'organization',
     person: 'personType',
     product: 'productType',

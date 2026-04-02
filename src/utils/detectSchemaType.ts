@@ -15,9 +15,11 @@ import howTo from '../patterns/howTo';
 import webPage from '../patterns/webPage';
 import imageObject from '../patterns/imageObject';
 import videoObject from '../patterns/videoObject';
+import lodgingBusiness from '../patterns/lodgingBusiness';
 import articleTypeList from '../schemas/types/article/list/articleTypeList';
 import organizationTypeList from '../schemas/types/organization/list/organizationTypeList';
 import localBusinessTypeList from '../schemas/types/localBusiness/list/localBusinessTypeList';
+import lodgingBusinessTypeList from '../schemas/types/lodgingBusiness/list/lodgingBusinessTypeList';
 import pageTypeList from '../schemas/types/webPage/list/pageTypeList';
 import { Schema } from '../types/Types';
 import { Config, Pattern } from '../config';
@@ -77,6 +79,8 @@ const detectSchemaType = (schema: Schema, config: Config) => {
       return article;
     case findSchemaType(organizationTypeList, type):
       return organization;
+    case findSchemaType(lodgingBusinessTypeList, type):
+      return lodgingBusiness;
     case findSchemaType(localBusinessTypeList, type):
       return localBusiness;
     case 'BreadcrumbList':

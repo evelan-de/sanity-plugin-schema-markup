@@ -83,10 +83,8 @@ const localBusinessList = [
   },
   'Internet Cafe',
   'Library',
-  {
-    optgroup: 'Lodging',
-    list: ['Lodging Business', 'Bed And Breakfast', 'Hostel', 'Hotel', 'Motel']
-  },
+  // Lodging types moved to dedicated lodgingBusiness schema type
+  // with hospitality-specific fields (checkinTime, petsAllowed, amenities, etc.)
   {
     optgroup: 'Medical/Dental',
     list: [
